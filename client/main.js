@@ -46,13 +46,17 @@ $(function($, window) {
         var pos = $(this).position();
         $(this).css('backgroundPosition', -pos.left +'px '+ -pos.top +'px');
       });
+
+      // $('.image').last().css('visibility', 'hidden');
+
+      $('#start').click(function() {
       $wraps = _.shuffle($wraps);
 
       $('#box').html($wraps);
       console.log($wraps);
 
       $('.image').last().css('visibility', 'hidden');
-      
+
       $('.tile').first().attr({'id': 'td1', 'data-num': '1'});
       $('.tile').first().next().attr({'id': 'td2', 'data-num': '2'});
       $('.tile').first().next().next().attr({'id': 'td3', 'data-num': '3'});
@@ -63,8 +67,9 @@ $(function($, window) {
       $('.tile').last().prev().attr({'id': 'td8', 'data-num': '8'});
       $('.tile').last().attr({'id': 'td9', 'data-num': '0'});
 
-
+      $('#start').attr('disabled', true);
       $('.tile').click(function() {
+
         var id = $(this).attr('id');
         // console.log($(this));
 
@@ -147,34 +152,37 @@ $(function($, window) {
 
       });
     });
+    $('#reset').click(function() {
+      $('#start').attr('disabled', false);
+      $('#box').html('');
+    });
 
-  };
+  });
 
-  function isBlank(id) {
-    var empty = false;
+    function isBlank(id) {
+      var empty = false;
 
-    var num = $('#' + id).attr('data-num');
-    if (num == 0) {
-      empty = true;
+      var num = $('#' + id).attr('data-num');
+      if (num == 0) {
+        empty = true;
+      }
+      return empty;
     }
-    return empty;
-  }
 
-  function swap(id1, id2) {
-    var $td1 = $('#' + id1);
-    var $td2 = $('#' + id2);
+    function swap(id1, id2) {
+      var $td1 = $('#' + id1);
+      var $td2 = $('#' + id2);
 
-    var num1 = $('#' + id1).attr('data-num');
-    var num2 = $('#' + id2).attr('data-num');
+      var num1 = $('#' + id1).attr('data-num');
+      var num2 = $('#' + id2).attr('data-num');
 
-    var html1 = $td1.html();
-    var html2 = $td2.html();
+      var html1 = $td1.html();
+      var html2 = $td2.html();
 
-    $td1.html(html2).attr('data-num', num2);
-    $td2.html(html1).attr('data-num', num1);
-  }
-
+      $td1.html(html2).attr('data-num', num2);
+      $td2.html(html1).attr('data-num', num1);
+    }
+  };
+  $('#box').splitTiles();
 }
 ($, window));
-
-$('#box').splitTiles();
