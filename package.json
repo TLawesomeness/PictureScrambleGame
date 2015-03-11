@@ -15,12 +15,13 @@
   },
   "version": "1.0.0",
   "scripts": {
-    "start": "PORT=3333 node server/app.js",
+    "start": "PORT=3000 node server/app.js",
     "clean": "rm -rf node_modules && rm -rf public && npm install && bower install && gulp build"
   },
   "license": "MIT",
   "dependencies": {
     "connect": "^3.3.4",
+    "lodash": "^3.5.0",
     "morgan": "^1.5.1",
     "serve-static": "^1.8.1"
   },

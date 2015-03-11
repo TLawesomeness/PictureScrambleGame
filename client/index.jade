@@ -5,6 +5,39 @@ html(lang='en')
     title Picture Scramble
     link(rel='stylesheet', href='/style.css')
   body
-    h1 Hello, World
+    .container
+      h1 Picture Scramble Game
+      button#start Go!
+      button#reset Reset
+    
+    .container
+      #box
+        img(src='http://tharunaya.co.uk/mx0125/wallpaper/image_wallpaper/20053098165_Iron--Man.gif')
+        //- table#game
+        //-   tr
+        //-     td#td1(data-num='1')
+        //-       img(src='images/1.jpg')
+        //-     td#td2(data-num='2')
+        //-       img(src='images/2.jpg')
+        //-     td#td3(data-num='3')
+        //-       img(src='images/3.jpg')
+        //-   tr
+        //-     td#td4(data-num='4')
+        //-       img(src='images/4.jpg')
+        //-     td#td5(data-num='5')
+        //-       img(src='images/5.jpg')
+        //-     td#td6(data-num='6')
+        //-       img(src='images/6.jpg')
+        //-   tr
+        //-     td#td7(data-num='7')
+        //-       img(src='images/7.jpg')
+        //-     td#td8(data-num='8')
+        //-       img(src='images/8.jpg')
+        //-     td#td9(data-num='0')
+            
+
     script(src='/vendor/jquery/dist/jquery.js')
+    script(src='/vendor/lodash/lodash.js')
     script(src='/main.js')
+    
+          
