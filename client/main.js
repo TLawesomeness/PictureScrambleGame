@@ -33,127 +33,136 @@ $(function($, window) {
       $img.hide().after($wraps);
 
       // Set background
-      $wraps.find(".image").css({
+      $wraps.find('.image').css({
         width: (width / obj.x) - obj.gap,
         height: (height / obj.y) - obj.gap,
-        marginBottom: obj.gap +'px',
-        marginRight: obj.gap +'px',
-        backgroundImage: 'url('+ $img.attr('src') +')'
+        marginBottom: obj.gap + 'px',
+        marginRight: obj.gap + 'px',
+        backgroundImage: 'url(' + $img.attr('src') + ')'
       });
 
       // Adjust position
-      $wraps.find(".image").each(function() {
+      $wraps.find('.image').each(function() {
         var pos = $(this).position();
-        $(this).css('backgroundPosition', -pos.left +'px '+ -pos.top +'px');
+        $(this).css('backgroundPosition', -pos.left + 'px ' + -pos.top + 'px');
       });
+
+      $('.image').first().attr({'id': 'img1'});
 
       // $('.image').last().css('visibility', 'hidden');
 
       $('#shuffle').click(function() {
-      $wraps = _.shuffle($wraps);
+        $wraps = _.shuffle($wraps);
 
-      $('#box').html($wraps);
-      console.log($wraps);
+        $('#box').html($wraps);
+        // console.log($wraps);
 
-      $('.image').last().css('visibility', 'hidden');
+        $('.image').last().css('visibility', 'hidden');
 
-      $('.tile').first().attr({'id': 'td1', 'data-num': '1'});
-      $('.tile').first().next().attr({'id': 'td2', 'data-num': '2'});
-      $('.tile').first().next().next().attr({'id': 'td3', 'data-num': '3'});
-      $('.tile').first().next().next().next().attr({'id': 'td4', 'data-num': '4'});
-      $('.tile').first().next().next().next().next().attr({'id': 'td5', 'data-num': '5'});
-      $('.tile').last().prev().prev().prev().attr({'id': 'td6', 'data-num': '6'});
-      $('.tile').last().prev().prev().attr({'id': 'td7', 'data-num': '7'});
-      $('.tile').last().prev().attr({'id': 'td8', 'data-num': '8'});
-      $('.tile').last().attr({'id': 'td9', 'data-num': '0'});
+        $('.tile').first().attr({'id': 'td1', 'data-num': '1'});
+        $('.tile').first().next().attr({'id': 'td2', 'data-num': '2'});
+        $('.tile').first().next().next().attr({'id': 'td3', 'data-num': '3'});
+        $('.tile').first().next().next().next().attr({'id': 'td4', 'data-num': '4'});
+        $('.tile').first().next().next().next().next().attr({'id': 'td5', 'data-num': '5'});
+        $('.tile').last().prev().prev().prev().attr({'id': 'td6', 'data-num': '6'});
+        $('.tile').last().prev().prev().attr({'id': 'td7', 'data-num': '7'});
+        $('.tile').last().prev().attr({'id': 'td8', 'data-num': '8'});
+        $('.tile').last().attr({'id': 'td9', 'data-num': '0'});
 
-      $('#shuffle').attr('disabled', true);
-      $('.tile').click(function() {
+        $('#shuffle').attr('disabled', true);
+        $('.tile').click(function() {
 
-        var id = $(this).attr('id');
-        // console.log($(this));
+          var id = $(this).attr('id');
+          // console.log($(this));
 
-        if (id === 'td1') {
-          if (isBlank('td2'))
-          swap(id, 'td2');
-          else if (isBlank('td4'))
-          swap(id, 'td4');
-        }
+          if (id === 'td1') {
+            if (isBlank('td2')) {
+              swap(id, 'td2');
+            } else if (isBlank('td4')) {
+              swap(id, 'td4');
+            }
+          }
 
-        if (id === 'td2') {
-          if (isBlank('td1'))
-          swap(id, 'td1');
-          else if (isBlank('td3'))
-          swap(id, 'td3');
-          else if (isBlank('td5'))
-          swap(id, 'td5');
-        }
+          if (id === 'td2') {
+            if (isBlank('td1')) {
+              swap(id, 'td1');
+            } else if (isBlank('td3')) {
+              swap(id, 'td3');
+            } else if (isBlank('td5')) {
+              swap(id, 'td5');
+            }
+          }
 
-        if (id === 'td3') {
-          if (isBlank('td2'))
-          swap(id,'td2');
-          else if (isBlank('td6'))
-          swap(id,'td6');
-        }
+          if (id === 'td3') {
+            if (isBlank('td2')) {
+              swap(id, 'td2');
+            } else if (isBlank('td6')) {
+              swap(id, 'td6');
+            }
+          }
 
-        if (id === 'td4') {
-          if (isBlank('td1'))
-          swap(id, 'td1');
-          else if (isBlank('td5'))
-          swap(id, 'td5');
-          else if (isBlank('td7'))
-          swap(id, 'td7');
-        }
+          if (id === 'td4') {
+            if (isBlank('td1')) {
+              swap(id, 'td1');
+            } else if (isBlank('td5')) {
+              swap(id, 'td5');
+            } else if (isBlank('td7')) {
+              swap(id, 'td7');
+            }
+          }
 
-        if (id === 'td5') {
-          if (isBlank('td2'))
-          swap(id, 'td2');
-          else if (isBlank('td4'))
-          swap(id, 'td4');
-          else if (isBlank('td6'))
-          swap(id, 'td6');
-          else if (isBlank('td8'))
-          swap(id, 'td8');
-        }
+          if (id === 'td5') {
+            if (isBlank('td2')) {
+              swap(id, 'td2');
+            } else if (isBlank('td4')) {
+              swap(id, 'td4');
+            } else if (isBlank('td6')) {
+              swap(id, 'td6');
+            } else if (isBlank('td8')) {
+              swap(id, 'td8');
+            }
+          }
 
-        if (id === 'td6') {
-          if (isBlank('td9'))
-          swap(id, 'td9');
-          else if (isBlank('td5'))
-          swap(id, 'td5');
-          else if (isBlank('td3'))
-          swap(id, 'td3');
-        }
+          if (id === 'td6') {
+            if (isBlank('td9')) {
+              swap(id, 'td9');
+            } else if (isBlank('td5')) {
+              swap(id, 'td5');
+            } else if (isBlank('td3')) {
+              swap(id, 'td3');
+            }
+          }
 
-        if (id === 'td7') {
-          if (isBlank('td4'))
-          swap(id, 'td4');
-          else if (isBlank('td8'))
-          swap(id, 'td8');
-        }
+          if (id === 'td7') {
+            if (isBlank('td4')) {
+              swap(id, 'td4');
+            } else if (isBlank('td8')) {
+              swap(id, 'td8');
+            }
+          }
 
-        if (id === 'td8') {
-          if (isBlank('td7'))
-          swap(id, 'td7');
-          else if (isBlank('td5'))
-          swap(id, 'td5');
-          else if (isBlank('td9'))
-          swap(id, 'td9');
-        }
+          if (id === 'td8') {
+            if (isBlank('td7')) {
+              swap(id, 'td7');
+            } else if (isBlank('td5')) {
+              swap(id, 'td5');
+            } else if (isBlank('td9')) {
+              swap(id, 'td9');
+            }
+          }
 
-        if (id === 'td9') {
-          if (isBlank('td6'))
-          swap(id, 'td6');
-          else if (isBlank('td8'))
-          swap(id, 'td8');
-        }
-
-        //check win condition
-
+          if (id === 'td9') {
+            if (isBlank('td6')) {
+              swap(id, 'td6');
+            } else if (isBlank('td8')) {
+              swap(id, 'td8');
+            }
+          }
+          //check win condition
+        });
       });
-    });
 
-  });
+    });
 
     function isBlank(id) {
       var empty = false;
@@ -181,12 +190,13 @@ $(function($, window) {
   };
 
   $('#box').splitTiles();
-}
-($, window));
+
+  ($, window);
+});
 
 $('#reset').click(function() {
   $('#shuffle').attr('disabled', false);
   $('.tile').remove();
-  $('#box').append('<img src="http://tharunaya.co.uk/mx0125/wallpaper/image_wallpaper/20053098165_Iron--Man.gif" />');
+  $('#box').append('<img src="images/im2.jpg" />');
   $('#box').splitTiles();
 });
