@@ -49,7 +49,7 @@ $(function($, window) {
 
       // $('.image').last().css('visibility', 'hidden');
 
-      $('#start').click(function() {
+      $('#shuffle').click(function() {
       $wraps = _.shuffle($wraps);
 
       $('#box').html($wraps);
@@ -67,7 +67,7 @@ $(function($, window) {
       $('.tile').last().prev().attr({'id': 'td8', 'data-num': '8'});
       $('.tile').last().attr({'id': 'td9', 'data-num': '0'});
 
-      $('#start').attr('disabled', true);
+      $('#shuffle').attr('disabled', true);
       $('.tile').click(function() {
 
         var id = $(this).attr('id');
@@ -152,10 +152,6 @@ $(function($, window) {
 
       });
     });
-    $('#reset').click(function() {
-      $('#start').attr('disabled', false);
-      $('#box').html('');
-    });
 
   });
 
@@ -183,6 +179,14 @@ $(function($, window) {
       $td2.html(html1).attr('data-num', num1);
     }
   };
+
   $('#box').splitTiles();
 }
 ($, window));
+
+$('#reset').click(function() {
+  $('#shuffle').attr('disabled', false);
+  $('.tile').remove();
+  $('#box').append('<img src="http://tharunaya.co.uk/mx0125/wallpaper/image_wallpaper/20053098165_Iron--Man.gif" />');
+  $('#box').splitTiles();
+});
